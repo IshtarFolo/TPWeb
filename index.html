@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Le temps du quiz!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Favicon du TIM-->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!--Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Références aux stylesheets CSS-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styleBase.css">
+    <link rel="stylesheet" href="css/styleQuiz.css">
+    
+</head>
+<body>
+    <!--Le curseur personnalisé-->
+    <div class="curseur"></div>
+
+    <!--Conteneur de l'intro-->
+    <main class="intro">
+            <div class="animTitreIntro">Le temps d'un quiz!</div>
+            <div class="imagesAnimees"></div>
+            <footer>
+                <button class="boutonIntro">Appuyez pour commencer</button>
+            </footer>
+    </main>
+
+    <!--Conteneur du quiz-->
+    <main class="quiz">
+            <header>
+                <!--Animation entre les questions-->
+                <div class="rideau1">
+                    <div class="pli fonce"></div>
+                    <div class="pli clair"></div>
+                    <div class="pli fonce"></div>
+                    <div class="pli clair"></div>
+                    <div class="pli fonce"></div>
+                </div>
+                <div class="rideau2">
+                    <div class="pli clair"></div>
+                    <div class="pli fonce"></div>
+                    <div class="pli clair"></div>
+                    <div class="pli fonce"></div>
+                    <div class="pli clair"></div>
+                </div>
+            </header>
+                <!--Questions et barre de temps-->
+                <section>
+                    <div class="barreTemps"></div>
+                    <div class="image"></div>
+                    <div class="titreQuestion"></div>
+                    <div class="choixReponse clique"></div>
+                </section>
+    </main>
+
+     <!--Conteneur de la fin-->
+    <main class="fin">
+        <header class="rideauFin">
+            <!--Animation entre les questions-->
+            <div class="rideau1">
+                <div class="pli fonce"></div>
+                <div class="pli clair"></div>
+                <div class="pli fonce"></div>
+                <div class="pli clair"></div>
+                <div class="pli fonce"></div>
+            </div>
+            <div class="rideau2">
+                <div class="pli clair"></div>
+                <div class="pli fonce"></div>
+                <div class="pli clair"></div>
+                <div class="pli fonce"></div>
+                <div class="pli clair"></div>
+            </div>
+        </header>
+    </main>
+
+    <!--Scripts Javascript-->
+    <script src="js/questionsQuiz.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

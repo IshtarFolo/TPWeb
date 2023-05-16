@@ -1,0 +1,128 @@
+/*---------------STYLE DE BASE DE LA PAGE---------------*/
+
+/*======================================================
+=************ Normalisation Supplémentaire ************=   
+========================================================*/
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select:none;
+}
+
+/*======================================================
+=************** Les Polices de charactère **************=   
+========================================================*/
+@font-face {
+    font-family: HorseshoesLemonade;
+    src:url("../polices/horseshoeslemonade.ttf");
+}
+
+@font-face {
+    font-family: GoudyBookletter1911;
+    src: url(../polices/GoudyBookletter1911.otf);
+}
+
+/*======================================================
+=***************** Le style du curseur ****************=   
+========================================================*/
+:root{
+    --mouseX: 0px;
+    --mouseY: 0px;
+}
+
+.curseur {
+    height: 2rem;
+    width: 2rem;
+    border: 2px solid green;
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    top: calc(var(--mouseY) - 1.2rem);
+    left: calc(var(--mouseX) - 1.2rem);
+    z-index: 1000;
+    
+    transition: border-radius 0.5s;
+}
+
+.curseur::before {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 50%;
+}
+
+.curseur.anim::before {
+    transform-origin: 50% 50%;
+    translate: -12px -12px;
+
+    animation: animHover 1.7s infinite cubic-bezier(0.48, 0.21, 0.49, 0.75);
+}
+
+/*L'Animation lorsque le curseur survole un élément cliquable, le centre du curseur a un effet de pulsation*/
+@keyframes animHover{
+    from{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(0.5);
+
+    }
+
+    to{
+        transform: scale(1);
+    }
+}
+
+/*======================================================
+=************** Le style de la page **************=   
+========================================================*/
+html {
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+
+    /*Disposition en rangée pour mobile first*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 0 0 auto ;
+}
+
+footer {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    border: 10px solid brown;
+}
+
+p {
+    text-align: center;
+}

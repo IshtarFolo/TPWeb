@@ -1,0 +1,544 @@
+/*======================================================
+=******************** Style du quiz ********************=   
+========================================================*/
+
+/*L'apparence du bouton de l'intro
+==========================================*/
+button {
+    width: 215rem;
+    height: 1.5rem;
+    background-color: grey;
+    color: white;
+    border-radius: 100rem;
+    border: 3px solid rgb(84, 84, 84);
+    cursor: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Positionnement du bouton de l'intro*/
+footer {
+    flex-grow: 0.7;
+}
+
+button:hover {
+    background-color: rgb(220, 220, 220);
+    color: black;
+
+    transition: background-color 1s, color 1s;
+}
+
+/*Titre de l'intro
+==========================================*/
+.animTitreIntro {
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.4rem + 3vw, 5rem);
+    font-family: "HorseshoesLemonade";
+    color: white;
+    z-index: 500;
+    
+    /*Pour l'animation du titre*/
+    animation: titreIntroTombe 1.3s cubic-bezier(0.24, 0.09, 0.53, 0.71);
+}
+
+/*Images qui s'animent dans le background
+===========================================*/
+.imagesAnimees {
+    width: 100vw;
+    height: 20rem;
+    background-color: black;
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+
+    animation: diaporama 12s 2s infinite both;
+}
+
+/*Animations CSS
+=========================================*/
+/*Pour le titre de l'intro*/
+@keyframes titreIntroTombe{
+    from{
+        transform: translateY(-20rem) scaleY(2);
+    }
+
+    50%{
+        transform: translateY(5rem) scaleY(2);
+    }
+
+    65%{
+        transform: scaleY(0.5);  
+    }
+
+    75%{
+        transform: translateY(-3rem) scaleY(0.5);      
+    }
+
+    85%{
+        transform: scaleY(2);  
+    }
+
+    90%{
+        transform: scaleY(0.5);
+    }
+
+    to{
+        transform: translateY(0rem);        
+    }
+}
+
+/*Pour les images dans le background de l'intro
+==========================================================*/
+@keyframes diaporama {
+    from {
+        background-image: url(../images/image1.jpg);
+    }
+
+    10% {
+        background-image: url(../images/image2.jpg);
+    }
+
+    20% {
+        background-image: url(../images/image3.jpg);
+    }
+
+    30% {
+        background-image: url(../images/image4.jpg);
+    }
+
+    40% {
+        background-image: url(../images/image5.jpg);
+    }
+
+    50% {
+        background-image: url(../images/image6.jpg);
+    }
+
+    60% {
+        background-image: url(../images/image7.jpg);
+    }
+
+    70% {
+        background-image: url(../images/image8.jpg);
+    }
+
+    80% {
+        background-image: url(../images/image9.jpg);
+    }
+
+    90% {
+        background-image: url(../images/image10.jpeg);
+    }
+
+    to {
+        background-image: url(../images/image1.jpg);
+    }  
+}
+/*========================================================*/
+
+/*L'apparence du quiz
+=========================================*/
+header{
+    display: flex;
+    flex-direction: row;
+    z-index: 1000;
+    position: fixed;
+    pointer-events: none;
+}
+
+/*Les rideaux qui s'ouvrent au début
+=========================================*/
+.rideau1 {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.rideau2 {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.pli {
+    width: 10vw;
+    height: 100vh;
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+}
+
+.clair {
+    background: rgb(187,0,0);
+    background: radial-gradient(circle, rgba(187,0,0,1) 14%, rgba(158,0,0,1) 44%, rgba(0,0,0,1) 100%);
+}
+
+.fonce {
+    background: rgb(179,2,2);
+    background: radial-gradient(circle, rgb(191, 1, 1) 14%, rgb(150, 2, 2) 44%, rgba(0,0,0,1) 100%);
+}
+
+/*La page du quiz
+=======================================*/
+
+main.quiz {
+    justify-content: flex-start;
+}
+
+.image {
+    width: 96.5vw;
+    height: 40vh;
+    background-color: balck;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.titreQuestion {
+    width: 96.5vw;
+    height: 20vh;
+    font-family: GoudyBookletter1911;
+    font-size: 14px;
+    text-align: center;
+    background-color: white;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*cercle sous les choix de réponse*/
+.choix::after {
+    width: 5rem;
+    height: 5rem;
+    content: "";
+    position: absolute;
+    border: 2px solid rgb(102, 102, 102);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.barreTemps {
+    width: 96.5vw;
+    height: 1rem;
+    transform-origin: 0 0;
+    background-color: white;
+}
+
+.barreTemps::after {
+    content: "";
+    position: absolute;
+    width: 96.5vw;
+    height: 1rem;
+    border: 3px solid rgb(229, 147, 39);
+}
+
+.choixReponse {
+    width: 96.5vw;
+    height: 35vh;
+    padding-top: 5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: rgb(229, 147, 39);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.choix {
+    width: 11rem;
+    height: 6rem;
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: GoudyBookletter1911;
+    text-align: center;
+    inline-size: 150px;
+    box-shadow: -3px -3px 5px black;
+    backdrop-filter: blur(10px);
+    opacity: 80%;
+
+    transition: transform 1s;
+}
+
+.choix:hover,
+.choix:active {
+    transform: scale(1.1);
+}
+
+/*Animations pour le bon choix de réponse ou le mauvais
+==========================================================*/
+@keyframes animSucces {
+    from, to {
+        height: 6rem;
+        width: 11rem;
+    }
+
+    50% {
+        height: 10rem;
+        width: 8rem;
+    }
+}
+
+@keyframes animEchec {
+    from, to {
+        height: 6rem;
+        width: 11rem;
+    }
+
+    50% {
+        height: 5rem;
+        width: 11rem;
+    }
+}
+/*======================================================*/
+
+.clique {
+    pointer-events: none;
+}
+
+.succes {
+    background-color: rgb(3, 85, 3);
+    box-shadow: 0px 1px 15px 24px rgb(4, 159, 4);
+    
+    animation: animSucces 1s 0s ease-in-out;
+}
+
+.echec {
+    background-color: rgb(152, 5, 5);
+    box-shadow: 0px 1px 15px 24px rgba(255,0,0,0.71);
+
+    animation: animEchec 1s 0s ease-in-out;
+}
+
+/*La Page de Fin
+===========================*/
+.fin {
+    pointer-events: none;
+}
+
+.score {
+    width: 50vw;
+    height: 30vh;
+    position: fixed;
+    translate: 6rem 10rem;
+    border: 3px solid white;
+    font-family: GoudyBookletter1911;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: rgb(229, 147, 39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.boutonRecommencer {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    z-index: 1000;
+    pointer-events: all;
+
+    transition: background-color 1s, color 1s, border-color 1s;
+}
+
+.boutonRecommencer:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+
+.pli {
+    pointer-events: none;
+}
+
+.rideau1 {
+    pointer-events: none;
+}
+
+.rideau2 {
+    pointer-events: none;
+}
+
+/*=======================================
+=*********** Requêtes Médias ***********=
+=========================================*/
+
+/*Pour les écrans plus larges*/
+
+@media all and (min-width: 720px){
+    /*L'Intro
+    ==================*/
+    main {
+        flex-direction: row;
+    }
+
+    .imagesAnimees{
+        width: 50rem;
+        height: 100vh;
+        translate: 16rem;
+        background-size: 60rem;
+    }
+
+    footer {
+        width: 100vw;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    button{
+        margin-left: 30rem;
+        margin-bottom: 2rem;
+        width: 14rem;
+        translate: -32rem 20rem;
+    }
+
+    .animTitreIntro{
+        translate: -16rem -6rem;
+        inline-size: 200px;
+        overflow-wrap: break-word;
+    }
+
+    /*Le Quiz
+    ==================*/
+    .quiz {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image {
+        width: 100vw;
+        height: 50vh;
+        background-size: contain;
+    }
+
+    .choixReponse {
+        justify-content: space-around;
+        height: 32.3vh;
+        width: 97.8vw;
+        padding-top: 0.2rem;
+    }
+
+    .choix {
+        width: 20rem;
+        height: 8rem;
+        font-size: 18px;
+    }
+
+    .barreTemps {
+        width: 98.2vw;
+        height: 1.5rem;
+    }
+
+    .barreTemps::after {
+        width: 98.2vw;
+        height: 1.5rem;
+    }
+
+    .titreQuestion {
+        width: 98vw;
+        height: 12vh;
+        font-size: 20px;
+    }
+
+    /*La Fin
+    =====================*/
+    .score {
+        width: 30vw;
+        translate: 20rem 10rem;
+    }
+
+    /*Animations pour le bon choix de réponse ou le mauvais*/
+    @keyframes animSucces {
+        from, to {
+            height: 6rem;
+            width: 20rem;
+        }
+
+        50% {
+            height: 10rem;
+            width: 15rem;
+        }
+    }
+
+    @keyframes animEchec {
+        from, to {
+            height: 6rem;
+            width: 20rem;
+        }
+
+        50% {
+            height: 5rem;
+            width: 25rem;
+        }
+    }
+}
+
+@media all and (min-width: 1080px){
+    /*Intro
+    ==========*/
+    .imagesAnimees{
+        width: 60rem;
+        height: 100vh;
+    }
+    
+    .animTitreIntro{
+        translate: -25rem -6rem;
+    }
+
+    button{
+        translate: -40rem 20rem;
+    }
+
+    /*Quiz
+    ========*/
+    .choixReponse {
+        padding-left: 25rem;
+        padding-right: 25rem;
+        width: 98.7vw;
+    }
+
+    .titreQuestion {
+        width: 98.7vw;
+        height: 12vh;
+    }
+
+    .barreTemps {
+        width: 98.7vw;
+    }
+
+    .barreTemps::after {
+        width: 98.7vw;
+    }
+
+    /*Fin
+    =====================*/
+    .score {
+        translate: 35rem 10rem;
+    }
+}
+
